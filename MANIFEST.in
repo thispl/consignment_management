@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include consignment_management *.css
+recursive-include consignment_management *.csv
+recursive-include consignment_management *.html
+recursive-include consignment_management *.ico
+recursive-include consignment_management *.js
+recursive-include consignment_management *.json
+recursive-include consignment_management *.md
+recursive-include consignment_management *.png
+recursive-include consignment_management *.py
+recursive-include consignment_management *.svg
+recursive-include consignment_management *.txt
+recursive-exclude consignment_management *.pyc
