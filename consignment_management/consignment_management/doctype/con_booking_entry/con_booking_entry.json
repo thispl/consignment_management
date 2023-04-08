@@ -1,0 +1,296 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "CBN.######",
+ "creation": "2023-03-11 16:51:02.904671",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "html_2",
+  "customer_name",
+  "customer_contact_number",
+  "customer_address",
+  "customer_type",
+  "column_break_6",
+  "date",
+  "html_8",
+  "contains",
+  "pieces",
+  "courier",
+  "actual_weight",
+  "billing_weight",
+  "section_break_10",
+  "origin_location",
+  "desination_location",
+  "pincode",
+  "mode",
+  "column_break_14",
+  "origin_zone",
+  "desination_zone",
+  "list_area",
+  "area",
+  "department",
+  "section_break_18",
+  "tat_alert_date",
+  "reference_number",
+  "column_break_25",
+  "packing_item_photo",
+  "section_break_27",
+  "consigner_name",
+  "column_break_21",
+  "consigner_phone_number",
+  "delivery_details_section",
+  "delivered_on",
+  "column_break_34",
+  "delivered_photo"
+ ],
+ "fields": [
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nBooking\nPacking\nIntransit\nDelivered",
+   "reqd": 1
+  },
+  {
+   "fieldname": "html_2",
+   "fieldtype": "HTML",
+   "options": "<b>Customer Details</b><br><br>"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer_name.customer_phone_number",
+   "fieldname": "customer_contact_number",
+   "fieldtype": "Int",
+   "label": "Customer Contact Number",
+   "length": 10,
+   "options": "Mobile"
+  },
+  {
+   "fetch_from": "customer_name.customer_address",
+   "fieldname": "customer_address",
+   "fieldtype": "Data",
+   "label": "Customer Address"
+  },
+  {
+   "fetch_from": "customer_name.customer_type",
+   "fieldname": "customer_type",
+   "fieldtype": "Data",
+   "label": "Customer Type"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Booking Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "html_8",
+   "fieldtype": "HTML",
+   "options": "<b>Courier Details</b><br><br>"
+  },
+  {
+   "fieldname": "contains",
+   "fieldtype": "Select",
+   "label": "Contains",
+   "options": "\nParcel\nDocuments",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pieces",
+   "fieldtype": "Int",
+   "label": "Pieces"
+  },
+  {
+   "fieldname": "courier",
+   "fieldtype": "Link",
+   "label": "Courier",
+   "options": "Courier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "actual_weight",
+   "fieldtype": "Float",
+   "label": "Actual Weight"
+  },
+  {
+   "fieldname": "billing_weight",
+   "fieldtype": "Float",
+   "label": "Billing Weight"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break",
+   "label": "Location & Department"
+  },
+  {
+   "fieldname": "origin_location",
+   "fieldtype": "Link",
+   "label": "Origin Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "desination_location",
+   "fieldtype": "Link",
+   "label": "Desination Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode",
+   "length": 6
+  },
+  {
+   "fieldname": "mode",
+   "fieldtype": "Select",
+   "label": "Mode",
+   "options": "\nSUR\nAIR\nTRAIN"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "origin_location.zone",
+   "fieldname": "origin_zone",
+   "fieldtype": "Data",
+   "label": "Origin Zone"
+  },
+  {
+   "fetch_from": "desination_location.zone",
+   "fieldname": "desination_zone",
+   "fieldtype": "Data",
+   "label": "Desination Zone"
+  },
+  {
+   "depends_on": "eval:doc.list_area == 1;",
+   "fieldname": "area",
+   "fieldtype": "Link",
+   "label": "Area",
+   "options": "Area"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break",
+   "label": "Packing Details"
+  },
+  {
+   "fieldname": "tat_alert_date",
+   "fieldtype": "Date",
+   "label": "TAT Alert Date"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "packing_item_photo",
+   "fieldtype": "Attach",
+   "label": "Packing Item Photo"
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break",
+   "label": "Consigner Details"
+  },
+  {
+   "fieldname": "consigner_name",
+   "fieldtype": "Data",
+   "label": "Consigner Name"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "courier.consignment_number",
+   "fieldname": "consigner_phone_number",
+   "fieldtype": "Data",
+   "label": "Consigner Phone Number",
+   "length": 10,
+   "options": "Phone"
+  },
+  {
+   "depends_on": "eval:doc.status == \"Delivered\"",
+   "fieldname": "delivery_details_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery Details"
+  },
+  {
+   "fieldname": "delivered_on",
+   "fieldtype": "Date",
+   "label": "Delivered On"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delivered_photo",
+   "fieldtype": "Attach",
+   "label": "Delivered Photo"
+  },
+  {
+   "default": "0",
+   "fieldname": "list_area",
+   "fieldtype": "Check",
+   "label": "List area"
+  },
+  {
+   "fieldname": "reference_number",
+   "fieldtype": "Data",
+   "label": "Reference Number",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-08 12:09:47.914513",
+ "modified_by": "Administrator",
+ "module": "Consignment Management",
+ "name": "CON Booking Entry",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
