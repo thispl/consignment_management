@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "CON Booking Entry",
+  "enabled": 1,
+  "modified": "2023-03-14 12:16:01.760774",
+  "module": "Pincode Global",
+  "name": "CON Booking Entry",
+  "script": "frappe.ui.form.on('CON Booking Entry', {\n    refresh(frm){\n        frm.set_query('area', () => {\n            return {\n                filters: {\n                    pincode: frm.doc.pincode,\n                }\n            };\n        });\n    },\n    pincode(frm){\n      if(frm.doc.list_area == 1){\n          frm.set_value('list_area','0')\n      }  \n    },\n\tlist_area: function(frm) {\n\t          if(frm.doc.list_area == 1){\n\n\t    frappe.call({\n                method: 'consignment_management.consignment_management.doctype.con_booking_entry.con_booking_entry.get_area',\n                args:{\n                    'pincode':frm.doc.pincode\n                },\n                callback:function(r){\n                    }\n                });\n\t          }\n// \t\t$.ajax({\n// \t\t\turl: \"https://api.postalpincode.in/pincode/\"+frm.doc.pincode,\n// \t\t\ttype: 'GET',\n// \t\t\tdataType: 'json',\n// \t\t\tsuccess: function (data, textStatus, xhr) {\n//         var areaNames = [];\n//         $.each(data, function(index, item) {\n//         $.each(item.PostOffice, function(i, postOffice) {\n//             var areaName = postOffice.Name;\n//             console.log(areaName);\n//             // areaNames.push(areaName);\n//         });\n      \n// \t\t});\n// \t    },\n//     });\n    }\n});\n\n//   frappe.new_doc(\"Area\", {\n//       \"name1\": \"John Doe\",\n//     }, function(doc) {\n//       // Once the doc is created, save it\n//       doc.save().then((saved_doc) => {\n//         console.log(\"Document saved: \", saved_doc);\n//       }).catch((error) => {\n//         console.log(\"Error saving document: \", error);\n//       });\n//     });",
+  "view": "Form"
+ }
+]
